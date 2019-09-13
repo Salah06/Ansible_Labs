@@ -1,0 +1,28 @@
+---
+  - name : Install
+    become : yes
+    apt :
+      name : nginx
+      state : latest
+
+  - name : Start
+    become : yes
+    service :
+      name : nginx
+      state : started
+      enabled : yes
+
+  - name : supprimer conf default
+    become : yes
+    file :
+      path : /etc/nginx/sites-enabled/default
+      state : absent
+    notify : nginx reload
+
+  - name : Configurations des domaines
+    include : site.yml
+    with_items : "{{ domains }}"
+
+
+
+...

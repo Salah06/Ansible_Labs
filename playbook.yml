@@ -1,0 +1,16 @@
+---
+- name : Intallation des serveurs Web
+  hosts : web
+  remote_user : root
+  vars :
+    user : root
+    domains :
+      - local.dev
+      - demo.fr
+
+  roles :
+    # - user
+    # - utils
+    - nginx
+
+...

@@ -1,0 +1,7 @@
+---
+   - name : installation des differents outils
+     apt : 
+       name : ['vim', 'htop', 'git', 'sudo']
+       update_cache: yes
+       state: latest
+...
